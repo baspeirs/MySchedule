@@ -49,6 +49,8 @@ router.get("/api/logout", (req, res) => {
     res.json({ message: "logged out" });
 })
 
-
+router.get("/api/authorized", isAuthenticated, function (req, res) {
+    res.json(req.user);
+});
 
 module.exports = router;
