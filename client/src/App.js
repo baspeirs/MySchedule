@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import './App.css';
 import Login from "./pages/Login";
 import Schedule from './pages/Schedule';
+import ChangeSchedule from "./pages/ChangeSchedule";
 import API from "./utils/API";
 
 function App() {
@@ -48,7 +49,7 @@ function App() {
     <React.Fragment>
       {authState.display ? 
         (<Router>
-          <div className="App container">
+          <div className="App">
             <Switch>
               <Route exact path="/">
                 {authState.authorized ? <Redirect to="/home" /> : <Login isAuthorized={isAuthorized} />} 
@@ -58,6 +59,13 @@ function App() {
                   <Schedule  logout={logout} />
                 ) : (
                   <Redirect to="/" />
+                )}
+              </Route>
+              <Route exact path="/changeschedule" >
+                {authState.user.manager ? (
+                  <ChangeSchedule  logout={logout} />
+                ) : (
+                  <Redirect to="/home" />
                 )}
               </Route>
             </Switch>

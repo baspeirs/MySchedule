@@ -44,7 +44,7 @@ export default function Login(props) {
         });
     };
     return (
-        <div>
+        <div className="container">
             <form>
                 <div className="form-group">
                     <label for="exampleInputEmail1">Username</label>
