@@ -14,7 +14,7 @@ export default function NavBar(props) {
                         <a className="nav-link" href="#">Schedule</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Time Off</a>
+                        <a className="nav-link" href="/timeoff">Time Off</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="/changeschedule">Update Schedule (manager only)</a>

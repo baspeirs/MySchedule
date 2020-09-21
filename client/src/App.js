@@ -4,6 +4,7 @@ import './App.css';
 import Login from "./pages/Login";
 import Schedule from './pages/Schedule';
 import ChangeSchedule from "./pages/ChangeSchedule";
+import TimeOff from "./pages/TimeOff";
 import API from "./utils/API";
 
 function App() {
@@ -57,6 +58,13 @@ function App() {
               <Route exact path="/home" >
                 {authState.authorized ? (
                   <Schedule  logout={logout} />
+                ) : (
+                  <Redirect to="/" />
+                )}
+              </Route>
+              <Route exact path="/timeoff" >
+                {authState.authorized ? (
+                  <TimeOff  logout={logout} />
                 ) : (
                   <Redirect to="/" />
                 )}
