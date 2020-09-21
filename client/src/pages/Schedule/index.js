@@ -14,7 +14,7 @@ export default function Schedule(props) {
     ]
     return (
         <div>
-            <NavBar logout={props.logout}/>
+            <NavBar logout={props.logout} authState={props.authState}/>
             <div className="container">
                 <div className="row">
                     <h1 className="col-lg-6">Welcome!</h1>

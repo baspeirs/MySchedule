@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const router = express.Router();
 const db = require("./models");
+const timeOffController = require("./controllers/timeOffController");
 var isAuthenticated = require("./config/middleware/isAuthendticated");
 
 // register user route
@@ -52,5 +53,13 @@ router.get("/api/logout", (req, res) => {
 router.get("/api/authorized", isAuthenticated, function (req, res) {
     res.json(req.user);
 });
+
+// ===== Time off Requests =====
+router.post("/api/timeoffpost", (req, res) => {
+    db.TimeOffRequest.create(req.body)
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+})
+
 
 module.exports = router;

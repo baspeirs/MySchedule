@@ -57,21 +57,21 @@ function App() {
               </Route>
               <Route exact path="/home" >
                 {authState.authorized ? (
-                  <Schedule  logout={logout} />
+                  <Schedule  logout={logout} authState={authState} />
                 ) : (
                   <Redirect to="/" />
                 )}
               </Route>
               <Route exact path="/timeoff" >
                 {authState.authorized ? (
-                  <TimeOff  logout={logout} />
+                  <TimeOff  logout={logout} authState={authState} />
                 ) : (
                   <Redirect to="/" />
                 )}
               </Route>
               <Route exact path="/changeschedule" >
                 {authState.user.manager ? (
-                  <ChangeSchedule  logout={logout} />
+                  <ChangeSchedule  logout={logout} authState={authState} />
                 ) : (
                   <Redirect to="/home" />
                 )}
