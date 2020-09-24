@@ -4,8 +4,8 @@ import API from "../../utils/API";
 export default function RequestTimeModal(props) {
     const [TORState, setTORState] = useState({
         name: "",
-        day: "Monday",
-        type: "In-Shop",
+        day: "Monday", // default 
+        type: "In-Shop", // default
         shift: ""
       });
 

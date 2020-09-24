@@ -35,8 +35,8 @@ router.post("/api/register", (req, res) => {
 // user login route (use a post request for log in)
 router.post("/api/login", (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
-        if(err) next(err);
-        if(!user) res.json(info);
+        if (err) next(err);
+        if (!user) res.json(info);
         req.logIn(user, err => {
             if (err) next(err);
             return res.json(user)
@@ -57,8 +57,16 @@ router.get("/api/authorized", isAuthenticated, function (req, res) {
 // ===== Time off Requests =====
 router.post("/api/timeoffpost", (req, res) => {
     db.TimeOffRequest.create(req.body)
-    .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err));
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+})
+
+router.get("/api/timeoffrequests", (req, res) => {
+    db.TimeOffRequest.find({})
+        .then(request => {
+            res.json(request)
+        })
+        .catch(err => console.log(err))
 })
 
 

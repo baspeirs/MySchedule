@@ -16,5 +16,8 @@ export default {
   // TOR = Time Off Request
   postTimeOff: (TOR) =>{
     return axios.post("/api/timeoffpost", TOR)
-  }
+  },
+  getTimeOff: () => {
+    return axios.get("/api/timeoffrequests")
+  } 
 }
