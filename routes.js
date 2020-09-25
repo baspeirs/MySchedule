@@ -54,6 +54,15 @@ router.get("/api/authorized", isAuthenticated, function (req, res) {
     res.json(req.user);
 });
 
+// get user route
+router.get("/api/user/:id", (req, res) => {
+    db.User.find({ _id: req.params.id })
+        .then(result => {
+            res.json(result)
+        })
+        .catch(err => console.log(err))
+})
+
 // ===== Time off Requests =====
 router.post("/api/timeoffpost", (req, res) => {
     db.TimeOffRequest.create(req.body)
@@ -70,12 +79,16 @@ router.get("/api/timeoffrequests", (req, res) => {
 })
 
 router.put("/api/timeoffclaim/:id", (req, res) => {
-    console.log(req.body)
     db.TimeOffRequest.findOneAndUpdate({ _id: req.params.id }, { $push: { users: req.body.user } }, { new: true })
         .then(result => {
-            console.log("Router.put log: ")
             console.log(result)
         })
+        .catch(err => console.log(err))
+})
+
+router.delete("/api/deleteTimeReqeust/:id", (req, res) => {
+    db.TimeOffRequest.deleteOne({ _id: req.params.id })
+        .then(result => console.log(result))
         .catch(err => console.log(err))
 })
 

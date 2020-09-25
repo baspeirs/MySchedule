@@ -22,5 +22,11 @@ export default {
   },
   claimTimeOff: (id, user) => {
     return axios.put("/api/timeoffclaim/" + id, user)
+  },
+  getUser: (id) => {
+    return axios.get("/api/user/" + id)
+  },
+  deleteTimeRequest: (id) => {
+    return axios.delete("/api/deleteTimeReqeust/" + id)
   }
 }

@@ -43,8 +43,8 @@ export default function RequestTimeModal(props) {
 
     return (
         <div>
-            <button type="button" className="modalBtn btn" title="Create Post" data-toggle="modal" data-target="#requestModal">
-                <button>Request Time Off</button>
+            <button type="button" className="modalBtn btn btn-primary" title="Create Post" data-toggle="modal" data-target="#requestModal">
+                Request Time Off
             </button>
             <div className="modal" id="requestModal" tabindex="-1">
                 <div className="modal-dialog">
