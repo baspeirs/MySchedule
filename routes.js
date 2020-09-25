@@ -69,5 +69,15 @@ router.get("/api/timeoffrequests", (req, res) => {
         .catch(err => console.log(err))
 })
 
+router.put("/api/timeoffclaim/:id", (req, res) => {
+    console.log(req.body)
+    db.TimeOffRequest.findOneAndUpdate({ _id: req.params.id }, { $push: { users: req.body.user } }, { new: true })
+        .then(result => {
+            console.log("Router.put log: ")
+            console.log(result)
+        })
+        .catch(err => console.log(err))
+})
+
 
 module.exports = router;

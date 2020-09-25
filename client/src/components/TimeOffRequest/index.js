@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import TimeOffCard from "../../components/TimeOffCard";
-import { PromiseProvider } from "mongoose";
 
-export default function TimeOffRequest() {
+export default function TimeOffRequest(props) {
     const [request, setRequests] = useState({
         requests: []
     })
@@ -23,10 +22,13 @@ export default function TimeOffRequest() {
         <div>
             {request.requests.map(request => (
                 <TimeOffCard 
+                    id={request._id}
                     name={request.name}
                     shift={request.shift}
                     day={request.day}
                     type={request.type}
+                    users={request.users}
+                    authState={props.authState}
                 />
             ))}
         </div>

@@ -19,5 +19,8 @@ export default {
   },
   getTimeOff: () => {
     return axios.get("/api/timeoffrequests")
-  } 
+  },
+  claimTimeOff: (id, user) => {
+    return axios.put("/api/timeoffclaim/" + id, user)
+  }
 }

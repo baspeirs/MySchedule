@@ -6,7 +6,8 @@ export default function RequestTimeModal(props) {
         name: "",
         day: "Monday", // default 
         type: "In-Shop", // default
-        shift: ""
+        shift: "",
+        users: [props.authState.user._id]
       });
 
       useEffect(() => {

@@ -9,7 +9,7 @@ export default function TimeOff(props) {
             <NavBar authState={props.authState} logout={props.logout}/>
             <h1>Time Off Requests</h1>
             <RequestTimeModal authState={props.authState}/>
-            <TimeOffRequest />
+            <TimeOffRequest authState={props.authState}/>
         </div>
     )
 }
