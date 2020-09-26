@@ -28,5 +28,8 @@ export default {
   },
   deleteTimeRequest: (id) => {
     return axios.delete("/api/deleteTimeReqeust/" + id)
+  },
+  getSchedule: () => {
+    return axios.get("/api/getschedule")
   }
 }

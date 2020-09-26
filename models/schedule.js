@@ -3,39 +3,14 @@ const Schema = mongoose.Schema;
 
 const Schedule = new Schema({
     week: Number,
-    monday: [
+    days: [
         {
-             
-        }
-    ],
-    tuesday: [
-        {
-             
-        }
-    ],
-    wednesday: [
-        {
-             
-        }
-    ],
-    thursday: [
-        {
-             
-        }
-    ],
-    friday: [
-        {
-             
-        }
-    ],
-    saturday: [
-        {
-             
-        }
-    ],
-    sunday: [
-        {
-             
+            day: String,
+            employees: [
+                {
+
+                }
+            ]
         }
     ]
 });
