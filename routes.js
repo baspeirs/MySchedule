@@ -92,5 +92,13 @@ router.delete("/api/deleteTimeReqeust/:id", (req, res) => {
         .catch(err => console.log(err))
 })
 
+// ===== Schedule Routes =====
+
+router.post("/api/addschedule", (req, res) => {
+    console.log(req.body)
+    db.Schedule.create(req.body)
+        .then(result => res.json(result))
+        .catch(err => console.log(err))
+})
 
 module.exports = router;
