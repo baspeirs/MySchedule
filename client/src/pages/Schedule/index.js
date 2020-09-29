@@ -9,6 +9,7 @@ export default function Schedule(props) {
     })
 
     useEffect(() => {
+        let dayHolder = []
         API.getSchedule()
             .then(result => {
                 result.data[0].days.forEach(element => {
@@ -16,16 +17,16 @@ export default function Schedule(props) {
                         day: element.day,
                         employees: element.employees
                     };
-                    console.log(dayObj);
-                    schedule.days.push(dayObj)
+                    dayHolder.push(dayObj);
+                    setSchedule({
+                        days: dayHolder
+                    })
                 })
             })
             .catch(err => console.log(err))
     }, [])
 
-    const test = () => {
-        console.log(schedule.days)
-    }
+    
     const days = [
         "Mon.",
         "Tues.",
@@ -38,14 +39,16 @@ export default function Schedule(props) {
     return (
         <div>
             <NavBar logout={props.logout} authState={props.authState}/>
-            <button onClick={test}>click me</button>
             <div className="container">
                 <div className="row">
                     <h1 className="col-lg-6">Welcome!</h1>
                 </div>
                 <div className="row">
-                    {days.map(day => (
-                        <Table day={day} />
+                    {schedule.days.map(day => (
+                        <Table 
+                        day={day.day}
+                        employees={day.employees} 
+                        />
                     ))}
                 </div>
             </div>
