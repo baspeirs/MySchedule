@@ -12,6 +12,7 @@ export default function Schedule(props) {
         let dayHolder = []
         API.getSchedule()
             .then(result => {
+                console.log(result)
                 result.data[0].days.forEach(element => {
                     let dayObj = {
                         day: element.day,
@@ -25,17 +26,7 @@ export default function Schedule(props) {
             })
             .catch(err => console.log(err))
     }, [])
-
     
-    const days = [
-        "Mon.",
-        "Tues.",
-        "Wed.",
-        "Thurs.",
-        "Fri.",
-        "Sat.",
-        "Sun."
-    ]
     return (
         <div>
             <NavBar logout={props.logout} authState={props.authState}/>

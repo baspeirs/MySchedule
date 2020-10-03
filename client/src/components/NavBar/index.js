@@ -11,13 +11,13 @@ export default function NavBar(props) {
             <div className="collapse navbar-collapse" id="navbarText">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item active">
-                        <a className="nav-link" href="#">Schedule</a>
+                        <a className="nav-link" href="/home">Schedule</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="/timeoff">Time Off</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/changeschedule">Update Schedule (manager only)</a>
+                        <a className="nav-link" href="/manageroperations">Update Schedule (manager only)</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="#" onClick={props.logout}>Log Out</a>

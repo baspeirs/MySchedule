@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 
 export default function RequestTimeModal(props) {
+    // TOR = Time Off Request
     const [TORState, setTORState] = useState({
         name: "",
         day: "Monday", // default 

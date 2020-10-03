@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import './App.css';
 import Login from "./pages/Login";
 import Schedule from './pages/Schedule';
-import ChangeSchedule from "./pages/ChangeSchedule";
 import TimeOff from "./pages/TimeOff";
+import ManagerOperations from "./pages/MagnagerOperations";
+import ChangeSchedule from "./pages/ChangeSchedule";
 import API from "./utils/API";
 
 function App() {
@@ -67,6 +68,13 @@ function App() {
                   <TimeOff  logout={logout} authState={authState} />
                 ) : (
                   <Redirect to="/" />
+                )}
+              </Route>
+              <Route exact path="/manageroperations" >
+                {authState.user.manager ? (
+                  <ManagerOperations  logout={logout} authState={authState} />
+                ) : (
+                  <Redirect to="/home" />
                 )}
               </Route>
               <Route exact path="/changeschedule" >
