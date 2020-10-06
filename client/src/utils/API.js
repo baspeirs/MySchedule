@@ -31,5 +31,8 @@ export default {
   },
   getSchedule: () => {
     return axios.get("/api/getschedule")
+  },
+  updateShift: (id, shiftObj) => {
+    return axios.put("/api/updateshift/" + id, shiftObj)
   }
 }

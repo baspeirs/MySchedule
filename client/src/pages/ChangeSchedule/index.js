@@ -6,6 +6,7 @@ import ScheduleManagerView from "../../components/ScheduleManagerView";
 
 export default function ChangeSchedule(props) {
     const [schedule, setSchedule] = useState({
+        id: "",
         days: []
     })
 
@@ -14,6 +15,7 @@ export default function ChangeSchedule(props) {
         API.getSchedule()
             .then(result => {
                 console.log(result)
+                const scheduleId = result.data[0]._id
                 result.data[0].days.forEach(element => {
                     let dayObj = {
                         day: element.day,
@@ -21,6 +23,7 @@ export default function ChangeSchedule(props) {
                     };
                     dayHolder.push(dayObj);
                     setSchedule({
+                        id: scheduleId,
                         days: dayHolder
                     })
                 })
@@ -35,6 +38,7 @@ export default function ChangeSchedule(props) {
                 <div className="row">
                     {schedule.days.map(day => (
                         <ScheduleManagerView 
+                        scheduleId={schedule.id}
                         day={day.day}
                         employees={day.employees} 
                         />

@@ -32,10 +32,16 @@ export default function ScheduleManagerView(props) {
     return (
         <div>
             <h3>{props.day}</h3>
-            <UpdateScheduleModal />
+            <UpdateScheduleModal
+                day={props.day}
+                employees={props.employees}
+            />
             <table class="table table-bordered">
                 {employeeState.managers.map(employee => (
                     <TRManagerView
+                        day={props.day}
+                        scheduleId={props.scheduleId}
+                        id={employee._id}
                         type={employee.type}
                         name={employee.name}
                         shift={employee.shift}
@@ -43,6 +49,8 @@ export default function ScheduleManagerView(props) {
                 ))}
                 {employeeState.inshops.map(employee => (
                     <TRManagerView
+                        day={props.day}
+                        scheduleId={props.scheduleId}
                         type={employee.type}
                         name={employee.name}
                         shift={employee.shift}
@@ -50,6 +58,8 @@ export default function ScheduleManagerView(props) {
                 ))}
                 {employeeState.drivers.map(employee => (
                     <TRManagerView
+                        day={props.day}
+                        scheduleId={props.scheduleId}
                         type={employee.type}
                         name={employee.name}
                         shift={employee.shift}

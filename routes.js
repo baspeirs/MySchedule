@@ -5,6 +5,7 @@ const router = express.Router();
 const db = require("./models");
 const timeOffController = require("./controllers/timeOffController");
 var isAuthenticated = require("./config/middleware/isAuthendticated");
+const schedule = require("./models/schedule");
 
 // register user route
 router.post("/api/register", (req, res) => {
@@ -104,6 +105,29 @@ router.get("/api/getschedule", (req, res) => {
     db.Schedule.find({})
         .then(result => res.json(result))
         .catch(err => console.log(err))
+})
+
+router.put("/api/updateshift/:id", (req, res) => {
+    db.Schedule.findById(req.params.id, (err, schedule) => {
+        for(let i = 0; i < schedule.days.length; i++) {
+            // find and match the day
+            if(schedule.days[i].day === req.body.day){
+                for(let j = 0; j < schedule.days[i].employees.length; j++) {
+                    // find and match the id of the employee on that day
+                    // odd, had to == instead of ===
+                    if(schedule.days[i].employees[j]._id == req.body.id) {
+                        console.log("hello I work!")
+                        schedule.days[i].employees[j].name = req.body.name
+                        schedule.days[i].employees[j].shift = req.body.shift
+                        schedule.save((err) => {
+                            if(err) throw err
+                            else console.log("updated")
+                        })
+                    }
+                }
+            }
+        }
+    })
 })
 
 module.exports = router;

@@ -8,7 +8,9 @@ const Schedule = new Schema({
             day: String,
             employees: [
                 {
-
+                    name: "",
+                    type: "",
+                    shift: ""
                 }
             ]
         }
