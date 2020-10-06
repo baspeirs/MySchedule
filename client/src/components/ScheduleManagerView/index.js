@@ -17,7 +17,7 @@ export default function ScheduleManagerView(props) {
         props.employees.forEach(employee => {
             if (employee.type === "Manager") { managerArr.push(employee) }
             else if (employee.type === "Driver") driverArr.push(employee)
-            else if (employee.type === "Inshop") inshopArr.push(employee)
+            else if (employee.type === "In-Shop") inshopArr.push(employee)
             else console.log("employee issue, fix things");
             // set state with the employee arrays
             setEmployeeState({
@@ -46,6 +46,7 @@ export default function ScheduleManagerView(props) {
                     <TRManagerView
                         day={props.day}
                         scheduleId={props.scheduleId}
+                        id={employee._id}
                         type={employee.type}
                         name={employee.name}
                         shift={employee.shift}
@@ -55,6 +56,7 @@ export default function ScheduleManagerView(props) {
                     <TRManagerView
                         day={props.day}
                         scheduleId={props.scheduleId}
+                        id={employee._id}
                         type={employee.type}
                         name={employee.name}
                         shift={employee.shift}

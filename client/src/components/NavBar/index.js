@@ -17,7 +17,7 @@ export default function NavBar(props) {
                         <a className="nav-link" href="/timeoff">Time Off</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/manageroperations">Update Schedule (manager only)</a>
+                        <a className="nav-link" href="/manageroperations">Manager Ops</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="#" onClick={props.logout}>Log Out</a>
