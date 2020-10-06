@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import UpdateScheduleModal from "../../components/UpdateScheduleModal";
 import TRManagerView from "../../components/TRManagerView/";
 
 export default function ScheduleManagerView(props) {
@@ -32,10 +31,6 @@ export default function ScheduleManagerView(props) {
     return (
         <div>
             <h3>{props.day}</h3>
-            <UpdateScheduleModal
-                day={props.day}
-                employees={props.employees}
-            />
             <table class="table table-bordered">
                 {employeeState.managers.map(employee => (
                     <TRManagerView

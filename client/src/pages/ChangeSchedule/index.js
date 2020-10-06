@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import UpdateScheduleModal from "../../components/UpdateScheduleModal";
 import Navbar from "../../components/NavBar";
 import API from "../../utils/API";
 import ScheduleManagerView from "../../components/ScheduleManagerView";
