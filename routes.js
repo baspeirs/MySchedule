@@ -26,12 +26,14 @@ router.post("/api/register", (req, res) => {
                 console.log(err);
                 return res.json(err)
             }
-            passport.authenticate("local")(req, res, (data) => {
-                res.json(user);
+            passport.authenticate("local", { session: false }),
+            (req, res, (data) => {
+                console.log(data);
+                return res.json(user);
             })
         }
     )
-})
+});
 
 // user login route (use a post request for log in)
 router.post("/api/login", (req, res, next) => {

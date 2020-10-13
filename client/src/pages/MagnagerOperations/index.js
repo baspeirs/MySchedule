@@ -1,7 +1,57 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import API from "../../utils/API";
 import NavBar from "../../components/NavBar";
 
 export default function ManagerOperations(props) {
+    const [employeeState, setEmployeeState] = useState({
+        username: "",
+        name: "",
+        email: "",
+        password: "",
+        manager: false
+    });
+
+    const handleInputChange = event => {
+        const { name, value } = event.target;
+        setEmployeeState({
+            ...employeeState,
+            [name]: value
+        });
+    };
+
+    const handleCheck = e => {
+        const name = e.target.name;
+        if (e.target.checked) {
+            setEmployeeState({
+                ...employeeState,
+                [name]: true
+            })
+        } else {
+            setEmployeeState({
+                ...employeeState,
+                [name]: false
+            })
+        }
+    };
+
+    const handleSubmit = () => {
+        API.saveUser({
+            username: employeeState.username,
+            name: employeeState.name,
+            email: employeeState.email,
+            password: employeeState.password,
+            manager: employeeState.manager
+        })
+        .then(result => {
+            console.log(result)
+            alert("Employee successfully added!");
+            window.location.reload();
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    };
+
     return (
         <div>
             <NavBar logout={props.logout} authState={props.authState} />
@@ -22,31 +72,31 @@ export default function ManagerOperations(props) {
                             </div>
                             <div className="modal-body">
                                 <form>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlTextarea1">Username</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" name="shift" ></textarea>
+                                    <div class="form-group mx-sm-3 mb-2">
+                                        <label for="inputPassword2" class="sr-only">Username</label>
+                                        <input type="text" class="form-control" id="inputPassword2" placeholder="Username" name="username" value={employeeState.username} onChange={handleInputChange} />
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlTextarea1">First and Last Name</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" name="shift" ></textarea>
+                                    <div class="form-group mx-sm-3 mb-2">
+                                        <label for="inputPassword2" class="sr-only">First and Last Name</label>
+                                        <input type="text" class="form-control" id="inputPassword2" placeholder="First and Last Name" name="name" value={employeeState.name} onChange={handleInputChange} />
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlTextarea1">Email</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" name="shift" ></textarea>
+                                    <div class="form-group mx-sm-3 mb-2">
+                                        <label for="inputPassword2" class="sr-only">Email Address</label>
+                                        <input type="text" class="form-control" id="inputPassword2" placeholder="Email Address" name="email" value={employeeState.email} onChange={handleInputChange} />
+                                    </div>
+                                    <div class="form-group mx-sm-3 mb-2">
+                                        <label for="inputPassword2" class="sr-only">Password</label>
+                                        <input type="password" class="form-control" id="inputPassword2" placeholder="Password" name="password" value={employeeState.password} onChange={handleInputChange} />
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked />
-                                        <label class="form-check-label" for="exampleRadios1">Default radio</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" />
-                                        <label class="form-check-label" for="exampleRadios2">Second default radio</label>
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="manager" onChange={handleCheck} />
+                                        <label class="form-check-label" for="defaultCheck1">Check if Employee is a schedule editor</label>
                                     </div>
                                 </form>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-primary" >Add Employee</button>
+                                <button type="button" className="btn btn-primary" onClick={handleSubmit} >Add Employee</button>
                             </div>
                         </div>
                     </div>
