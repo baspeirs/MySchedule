@@ -1,7 +1,7 @@
 module.exports = 
     {
-        username: "coffeeaddict",
-        email: "stupidemail@email.com",
+        username: "baspeirs",
+        email: "baspeirs@gmail.com",
         name: "Bryce Speirs",
         manager: true,
         password: "spacebook"
