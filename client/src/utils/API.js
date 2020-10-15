@@ -34,5 +34,17 @@ export default {
   },
   updateShift: (id, shiftObj) => {
     return axios.put("/api/updateshift/" + id, shiftObj);
+  },
+  getEmployees: () => {
+    return axios.get("/api/getemployees");
+  },
+  deleteEmployee: id => {
+    return axios.delete("/api/deleteemployee/" + id);
+  },
+  seedDefaultUser: () => {
+    return axios.post("/api/seeddefaultuser")
+  },
+  seedDefaultSchedule: () => {
+    return axios.post("/api/seeddefaultschedule")
   }
 }

@@ -7,6 +7,8 @@ import TimeOff from "./pages/TimeOff";
 import ManagerOperations from "./pages/MagnagerOperations";
 import ChangeSchedule from "./pages/ChangeSchedule";
 import API from "./utils/API";
+import EmployeeDirectory from "./pages/EmployeeDirectory";
+import SeedsForDb from './pages/SeedsForDb';
 
 function App() {
   let [authState, setAuthState] = useState({
@@ -83,6 +85,16 @@ function App() {
                 ) : (
                   <Redirect to="/home" />
                 )}
+              </Route>
+              <Route exact path="/employeedirectory" >
+                {authState.user.manager ? (
+                  <EmployeeDirectory  logout={logout} authState={authState} />
+                ) : (
+                  <Redirect to="/home" />
+                )}
+              </Route>
+              <Route exact path="/seeddata">
+                <SeedsForDb/>
               </Route>
             </Switch>
           </div>
