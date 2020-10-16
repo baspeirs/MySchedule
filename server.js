@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3001;
 require("dotenv").config();
 const session = require("express-session");
 const passport = require("./config/passport");
-app.use(session({ secret: process.env.PASSPORT, resave: true, saveUninitialized: true }));
+app.use(session({ secret: process.env.SECRET_SESSION, resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
