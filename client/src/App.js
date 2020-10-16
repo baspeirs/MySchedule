@@ -55,6 +55,9 @@ function App() {
         (<Router>
           <div className="App">
             <Switch>
+            <Route exact path="/seeddata">
+                <SeedsForDb/>
+              </Route>
               <Route exact path="/">
                 {authState.authorized ? <Redirect to="/home" /> : <Login isAuthorized={isAuthorized} />} 
               </Route>
