@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import API from "../../utils/API";
 
 export default function Login(props) {
@@ -43,19 +43,33 @@ export default function Login(props) {
             [name]: value.trim()
         });
     };
+
+    const userSeed = () => {
+        API.seedDefaultUser()
+    };
+
+    const scheduleSeed = () => {
+        API.seedDefaultSchedule()
+    };
+
     return (
         <div className="container">
             <form>
                 <div className="form-group">
                     <label for="exampleInputEmail1">Username</label>
-                    <input type="text" className="form-control" aria-describedby="emailHelp" name="username" value={userState.username} onChange={handleInputChange}/>
+                    <input type="text" className="form-control" aria-describedby="emailHelp" name="username" value={userState.username} onChange={handleInputChange} />
                 </div>
                 <div className="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" className="form-control" name="password" value={userState.password}  onChange={handleInputChange}/>
+                    <input type="password" className="form-control" name="password" value={userState.password} onChange={handleInputChange} />
                 </div>
                 <button type="submit" className="btn btn-primary" onClick={login}>Submit</button>
             </form>
+
+            <div>
+                <button onClick={userSeed}>Seed the default user</button>
+                <button onClick={scheduleSeed}>Seed the default schedule</button>
+            </div>
         </div>
     )
 }

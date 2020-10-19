@@ -9,6 +9,7 @@ export default function SeedsForDb() {
     const scheduleSeed = () => {
         API.seedDefaultSchedule()
     }
+    
 
     return(
         <div>
