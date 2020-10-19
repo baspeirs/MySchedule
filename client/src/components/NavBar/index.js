@@ -1,4 +1,3 @@
-import { PromiseProvider } from "mongoose";
 import React from "react";
 import { Link } from 'react-router-dom';
 
@@ -11,7 +10,7 @@ export default function NavBar(props) {
             </button>
             <div className="collapse navbar-collapse" id="navbarText">
                 <ul className="navbar-nav mr-auto">
-                    <li className="nav-item active"><Link to="/home">Home</Link></li>
+                    <li className="nav-item"><Link to="/home">Home</Link></li>
                     <li className="nav-item"><Link to ="timeoff">Time Off</Link></li>
                     <li className="nav-item"><Link to="manageroperations">Manager Ops</Link></li>
                     <li className="nav-item"><a className="nav-link" href="#" onClick={props.logout}>Log Out</a></li>

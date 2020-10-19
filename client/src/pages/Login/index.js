@@ -44,13 +44,14 @@ export default function Login(props) {
         });
     };
 
-    const userSeed = () => {
-        API.seedDefaultUser()
-    };
+        // functions for seeding database after deployment 
+    // const userSeed = () => {
+    //     API.seedDefaultUser()
+    // };
 
-    const scheduleSeed = () => {
-        API.seedDefaultSchedule()
-    };
+    // const scheduleSeed = () => {
+    //     API.seedDefaultSchedule()
+    // };
 
     return (
         <div className="container">
@@ -65,11 +66,11 @@ export default function Login(props) {
                 </div>
                 <button type="submit" className="btn btn-primary" onClick={login}>Submit</button>
             </form>
-
-            <div>
+            {/* Buttons to call seed functions */}
+            {/* <div>
                 <button onClick={userSeed}>Seed the default user</button>
                 <button onClick={scheduleSeed}>Seed the default schedule</button>
-            </div>
+            </div> */}
         </div>
     )
 }
