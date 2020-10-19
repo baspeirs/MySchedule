@@ -8,7 +8,6 @@ import ManagerOperations from "./pages/MagnagerOperations";
 import ChangeSchedule from "./pages/ChangeSchedule";
 import API from "./utils/API";
 import EmployeeDirectory from "./pages/EmployeeDirectory";
-import SeedsForDb from './pages/SeedsForDb';
 
 function App() {
   let [authState, setAuthState] = useState({
@@ -55,9 +54,6 @@ function App() {
         (<Router>
           <div className="App">
             <Switch>
-            <Route exact path="/seeddata">
-                <SeedsForDb/>
-              </Route>
               <Route exact path="/">
                 {authState.authorized ? <Redirect to="/home" /> : <Login isAuthorized={isAuthorized} />} 
               </Route>
@@ -95,9 +91,6 @@ function App() {
                 ) : (
                   <Redirect to="/home" />
                 )}
-              </Route>
-              <Route exact path="/seeddata">
-                <SeedsForDb/>
               </Route>
             </Switch>
           </div>
