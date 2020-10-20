@@ -16,9 +16,6 @@ export default function NavBar(props) {
                     <Link to="manageroperations"><li className="nav-item"><a className="nav-link" href="#">Manager Ops</a></li></Link>
                     <li className="nav-item"><a className="nav-link" href="#" onClick={props.logout}>Log Out</a></li>
                 </ul>
-                <span className="navbar-text">
-                    Jimmy Johns store #____
-    </span>
             </div>
         </nav>
     )

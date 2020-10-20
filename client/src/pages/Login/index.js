@@ -73,7 +73,7 @@ export default function Login(props) {
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" className="form-control" name="password" value={userState.password} onChange={handleInputChange} />
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={login}>Submit</button>
+                <button type="submit" className="btn btn-dark" onClick={login}>Submit</button>
             </form>
             {/* Buttons to call seed functions */}
             {/* <div>

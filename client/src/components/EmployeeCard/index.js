@@ -11,14 +11,35 @@ export default function EmployeeCard(props) {
             })
     }
 
+    if (props.manager) {
+        return (
+            <div>
+                <div className="card" style={{ marginTop: "15px" }}>
+                    <div className="card-body">
+                        <div className="row">
+                            <h3 className="card-title col-lg-10">{props.name}</h3>
+                            <button className="btn btn-danger col-lg-2" onClick={deleteEmployee}>X</button>
+                        </div>
+                        <p className="card-text">Username: {props.username}</p>
+                        <p className="card-text">Email: {props.email}</p>
+                        <p className="card-text">This employee is a manager</p>
+
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{props.name}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{props.username}</h6>
-                    <p class="card-text">{props.email}</p>
-                    <button className="btn btn-danger" onClick={deleteEmployee}>X</button>
+            <div className="card" style={{ marginTop: "15px" }}>
+                <div className="card-body">
+                    <div className="row">
+                        <h3 className="card-title col-lg-10">{props.name}</h3>
+                        <button className="btn btn-danger col-lg-2" onClick={deleteEmployee}>X</button>
+                    </div>
+                    <p className="card-text">Username: {props.username}</p>
+                    <p className="card-text">Email: {props.email}</p>
                 </div>
             </div>
         </div>

@@ -59,9 +59,9 @@ export default function ManagerOperations(props) {
             <div className="container">
                 <div className="row">
                     <nav class="nav flex-column">
-                        <Link to="/employeedirectory"><a className="nav-link" href="#"><button className="btn btn-primary ops-nav-btn">Employee Directory</button></a></Link>
-                        <Link to="/changeschedule"><a className="nav-link" href="#"><button className="btn btn-primary ops-nav-btn">Change Schedule</button></a></Link>
-                        <a className="nav-link" href="#" title="Create Post" data-toggle="modal" data-target="#requestModal"><button className="btn btn-primary ops-nav-btn">Add Employee</button></a>
+                        <Link to="/employeedirectory"><a className="nav-link" href="#"><button className="btn btn-dark ops-nav-btn">Employee Directory</button></a></Link>
+                        <Link to="/changeschedule"><a className="nav-link" href="#"><button className="btn btn-dark ops-nav-btn">Change Schedule</button></a></Link>
+                        <a className="nav-link" href="#" title="Create Post" data-toggle="modal" data-target="#requestModal"><button className="btn btn-dark ops-nav-btn">Add Employee</button></a>
                     </nav>
                 </div>
                 <div className="modal" id="requestModal" tabindex="-1">

@@ -38,6 +38,7 @@ export default function EmployeeDirectory(props) {
                                 name={employee.name}
                                 username={employee.username}
                                 id={employee._id}
+                                manager={employee.manager}
                             />
                         ))}
                     </div>
