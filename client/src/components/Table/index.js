@@ -32,25 +32,25 @@ export default function Table(props) {
     }, [])
     return (
         <div className="col-lg-3">
-            <table className="table table-striped table-dark">
-                <TableHead day={props.day} />
+            <table className="table table-striped">
+                <TableHead day={props.day} style={{ width: "100%" }} />
 
                 {/* creates a table row for the manager section */}
-                <h4>Manager</h4>
+                <thead><tr><th>Manager</th></tr></thead>
                 {employeeState.managers.map(manager => (
-                    <ManagerTableRow manager={manager}/>
+                    <ManagerTableRow manager={manager} />
                 ))}
 
                 {/* creates a table row for the in shop section */}
-                <h4>In-Shop</h4>
+                <thead><tr><th>In-Shop</th></tr></thead>
                 {employeeState.inshops.map(inshop => (
-                    <InShopTableRow inshop={inshop}/>
+                    <InShopTableRow inshop={inshop} />
                 ))}
 
                 {/* creates a table row for the driver section */}
-                <h4>Driver</h4>
+                <thead><tr><th>Driver</th></tr></thead>
                 {employeeState.drivers.map(driver => (
-                <DriverTableRow driver={driver}/>
+                    <DriverTableRow driver={driver} />
                 ))}
             </table>
         </div>

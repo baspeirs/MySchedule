@@ -30,7 +30,7 @@ export default function ScheduleManagerView(props) {
 
     return (
         <div>
-            <h3>{props.day}</h3>
+            <h3 style={{marginTop: "15px", fontWeight: "bold"}}>{props.day}</h3>
             <table class="table table">
                 {employeeState.managers.map(employee => (
                     <TRManagerView

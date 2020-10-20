@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
 import { Link } from 'react-router-dom';
+import "./style.css";
 
 
 export default function ManagerOperations(props) {
@@ -58,11 +59,9 @@ export default function ManagerOperations(props) {
             <div className="container">
                 <div className="row">
                     <nav class="nav flex-column">
-                        <li className="nav-item"><Link to="/employeedirectory">Employee Directory</Link></li>
-                        <li className="nav-item"><Link to="/changeschedule">Change Schedule</Link></li>
-                        {/* <a class="nav-link" href="/employeedirectory"><button className="btn btn-primary">Employee Directory</button></a>
-                        <a class="nav-link" href="/changeschedule"><button className="btn btn-primary">Change Schedule</button></a> */}
-                        <a class="nav-link" href="#" title="Create Post" data-toggle="modal" data-target="#requestModal"><button className="btn btn-primary">Add Employee</button></a>
+                        <Link to="/employeedirectory"><a className="nav-link" href="#"><button className="btn btn-primary ops-nav-btn">Employee Directory</button></a></Link>
+                        <Link to="/changeschedule"><a className="nav-link" href="#"><button className="btn btn-primary ops-nav-btn">Change Schedule</button></a></Link>
+                        <a className="nav-link" href="#" title="Create Post" data-toggle="modal" data-target="#requestModal"><button className="btn btn-primary ops-nav-btn">Add Employee</button></a>
                     </nav>
                 </div>
                 <div className="modal" id="requestModal" tabindex="-1">
