@@ -14,7 +14,7 @@ export default function Login(props) {
     const login = e => {
         e.preventDefault();
         API.login({
-            username: userState.username.toLowerCase(),
+            username: userState.username,
             password: userState.password
         })
             .then(res => {
@@ -40,11 +40,11 @@ export default function Login(props) {
         const { name, value } = event.target;
         setUserState({
             ...userState,
-            [name]: value.trim()
+            [name]: value
         });
     };
 
-        // functions for seeding database after deployment 
+        // ===== functions for seeding database after deployment ===== 
     // const userSeed = () => {
     //     API.seedDefaultUser()
     // };
