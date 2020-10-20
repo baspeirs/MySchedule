@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
+import "./style.css";
+import Logo from "../../images/Logo.png";
 
 export default function Login(props) {
     const [userState, setUserState] = useState({
@@ -44,7 +46,7 @@ export default function Login(props) {
         });
     };
 
-        // ===== functions for seeding database after deployment ===== 
+    // ===== functions for seeding database after deployment ===== 
     // const userSeed = () => {
     //     API.seedDefaultUser()
     // };
@@ -55,6 +57,13 @@ export default function Login(props) {
 
     return (
         <div className="container">
+            <div className="row" id="login-header">
+                <img alt="logo" src={Logo} id="logo" className="col-lg-2"/>
+                <div className="col-lg-8" id="login-header-col">
+                    <h1 id="MySchedule">MySchedule</h1>
+                    <h2 id="store-number">Store #1457</h2>
+                </div>
+            </div>
             <form>
                 <div className="form-group">
                     <label for="exampleInputEmail1">Username</label>
