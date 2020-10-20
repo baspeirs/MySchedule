@@ -21,16 +21,14 @@ router.post("/api/register", (req, res) => {
             manager: req.body.manager
         }),
         req.body.password,
-        (err, user) => {
+        function(err, user) {
             if (err) {
-                console.log(err);
                 return res.json(err)
             }
-            passport.authenticate("local", { session: false }),
-                (req, res, (data) => {
-                    console.log(data);
-                    return res.json(user);
-                })
+            passport.authenticate("local", { session: false })
+            (req, res, function(data) {
+                res.json(req.user);
+            })
         }
     )
 });
