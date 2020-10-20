@@ -30,7 +30,7 @@ export default function TimeOffCard(props) {
         if(props.authState.user._id === props.users[0] || props.authState.user.manager === true) {
             API.deleteTimeRequest(props.id)
                 .then(result => {
-                    console.log("the post should have been deleted")
+                    window.location.reload()
                 })
                 .catch(err => console.log(err))
         } else alert("You Dont have Access to delete this request.")

@@ -15,9 +15,6 @@ export default function TimeOffRequest(props) {
             .catch(err => console.log(err))
     }, [])
 
-    // if(!request.requests) {
-    //     return null
-    // }
     return(
         <div>
             {request.requests.map(request => (

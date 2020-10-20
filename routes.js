@@ -103,7 +103,7 @@ router.put("/api/timeoffclaim/:id", (req, res) => {
 
 router.delete("/api/deleteTimeReqeust/:id", (req, res) => {
     db.TimeOffRequest.deleteOne({ _id: req.params.id })
-        .then(result => console.log(result))
+        .then(result => res.json(result))
         .catch(err => console.log(err))
 })
 

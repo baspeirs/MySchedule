@@ -32,7 +32,7 @@ export default function Schedule(props) {
             <NavBar logout={props.logout} authState={props.authState}/>
             <div className="container">
                 <div className="row">
-                    <h1 className="col-lg-6">Welcome!</h1>
+    <h1 className="col-lg-6">Welcome {props.authState.user.name}!</h1>
                 </div>
                 <div className="row">
                     {schedule.days.map(day => (
